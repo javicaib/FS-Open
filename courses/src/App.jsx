@@ -18,32 +18,43 @@ const Total = ({ parts }) => {
   }, 0);
   return <p>Number of exercises {total}</p>;
 };
+const Course = (props) => {
+  const { course } = props
+  return (<>
+
+    {course.parts.map((part) => {
+      return <Part part={part} key={part.name} />;
+    })}
+  </>)
+}
 function App() {
   const course = {
+    id: 1,
     name: 'Half Stack application development',
     parts: [
       {
         name: 'Fundamentals of React',
-        exercises: 10
+        exercises: 10,
+        id: 1,
       },
       {
         name: 'Using props to pass data',
-        exercises: 7
+        exercises: 7,
+        id: 2,
       },
       {
         name: 'State of a component',
-        exercises: 14
-      }
-    ]
+        exercises: 14,
+        id: 3,
+      },
+    ],
   }
 
   return (
     <>
       <div>
         <Header course={course.name} />
-        {course.parts.map((part) => {
-          return <Part part={part} key={part.name} />;
-        })}
+        <Course course={course} />
         <Total parts={course.parts} />
       </div>
     </>
