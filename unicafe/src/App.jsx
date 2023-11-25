@@ -8,7 +8,7 @@ function App() {
   const [bad, setBad] = useState(0)
   const handleClick = (setState)=>{
     setState((prev)=>{
-      return prev += 1
+      return prev += 1  
     })
   }
   return (
