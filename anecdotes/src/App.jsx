@@ -3,6 +3,8 @@ import './App.css'
 
 function App() {
   const [selected, setSelected] = useState(0)
+  const [votes,setVotes] = useState({ 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 })
+
   const anecdotes = [
     'If it hurts, do it more often',
     'Adding manpower to a late software project makes it later!',
@@ -11,16 +13,29 @@ function App() {
     'Premature optimization is the root of all evil.',
     'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.'
   ]
-  const handleClick = ()=>{
-    setSelected(Math.floor(Math.random()*anecdotes.length))
+  const handleClick = () => {
+    setSelected(Math.floor(Math.random() * anecdotes.length))
+  }
+  const handleVote = () => {
+   setVotes((prev)=>{
+    return {
+      ...prev,
+      [selected]: prev[selected] + 1
+    }
+   })
   }
   return (
     <>
       {anecdotes[selected]}
       <div>
-      <button onClick={handleClick}>Next Anecdote</button>
+        <span>has {votes[selected]} votes</span>
       </div>
-     
+
+      <div>
+        <button onClick={handleVote}>Vote</button>
+        <button onClick={handleClick}>Next Anecdote</button>
+      </div>
+
     </>
   )
 }
