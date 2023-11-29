@@ -27,7 +27,7 @@ function App() {
   return (
     <>
       Find: <input type="text" onChange={handleChange} />
-      <Country data={countriesFiltred} />
+      <Country data={countriesFiltred} setCountriesFiltred={setCountriesFiltred} />
     </>
   );
 }
