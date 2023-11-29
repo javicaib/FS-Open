@@ -4,7 +4,7 @@ export function ListFilterPersons({ personsFiltred }) {
             {
                 personsFiltred.map(person => {
                     return (
-                        <p key={crypto.randomUUID()}>{person.name} - {person.phone}</p>
+                        <p key={crypto.randomUUID()}>{person.name} - {person.number}</p>
                     )
                 })
             }
@@ -17,7 +17,7 @@ export function ListAllPersons({ persons }) {
             {
                 persons.map(person => {
                     return (
-                        <p key={crypto.randomUUID()}>{person.name} - {person.phone}</p>
+                        <p key={crypto.randomUUID()}>{person.name} - {person.number}</p>
                     )
                 })
             }
